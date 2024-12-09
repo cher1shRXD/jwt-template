@@ -21,7 +21,7 @@ public class RefreshTokenRepository {
         return redisTemplate.opsForValue().get("refreshToken:" + email);
     }
 
-    public Boolean existsByUserName(String email) {
+    public Boolean existsByEmail(String email) {
         return redisTemplate.hasKey("refreshToken:" + email);
     }
 }

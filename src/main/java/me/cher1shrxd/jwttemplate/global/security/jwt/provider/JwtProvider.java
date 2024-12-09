@@ -34,7 +34,6 @@ public class JwtProvider {
 
     @PostConstruct
     protected void init() {
-        System.out.println("Loaded SECRET_KEY: " + jwtProperties.getSecretKey());
         key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(jwtProperties.getSecretKey()));
     }
 
@@ -69,15 +68,18 @@ public class JwtProvider {
     public Authentication getAuthentication(String token) {
         Claims claims = getClaims(token);
 
+        System.out.println("Parsed JWT Subject (email): " + claims.getSubject());
+
         if (getType(token) != JwtType.ACCESS) {
             throw new CustomException(CustomErrorCode.INVALID_TOKEN_TYPE);
         }
 
-        UserEntity user = userRepository.findByEmail(claims.getSubject()).orElseThrow(() -> new CustomException(CustomErrorCode.USER_NOT_FOUND));
+        UserEntity userEntity = userRepository.findByEmail(claims.getSubject())
+                .orElseThrow(() -> new CustomException(CustomErrorCode.USER_NOT_FOUND));
 
-        UserDetails details = new CustomUserDetails(user);
+        UserDetails userDetails = new CustomUserDetails(userEntity);
 
-        return new UsernamePasswordAuthenticationToken(details, null, details.getAuthorities());
+        return new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
     }
 
     public String extractToken(HttpServletRequest request) {

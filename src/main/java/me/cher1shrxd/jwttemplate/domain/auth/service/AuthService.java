@@ -72,7 +72,7 @@ public class AuthService {
 
         String email = jwtProvider.getSubject(refreshToken);
 
-        if (!refreshTokenRepository.existsByUserName(email))
+        if (!refreshTokenRepository.existsByEmail(email))
             throw new CustomException(CustomErrorCode.INVALID_REFRESH_TOKEN);
 
         if (!refreshTokenRepository.findByEmail(email).equals(refreshToken))

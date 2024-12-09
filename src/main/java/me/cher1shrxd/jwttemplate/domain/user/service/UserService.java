@@ -18,9 +18,10 @@ public class UserService {
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public UserResponse getMe() {
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        System.out.println(email);
 
-        UserEntity userEntity = userRepository.findByEmail(username).orElseThrow(() -> new CustomException(CustomErrorCode.USER_NOT_FOUND));
+        UserEntity userEntity = userRepository.findByEmail(email).orElseThrow(() -> new CustomException(CustomErrorCode.USER_NOT_FOUND));
 
         return new UserResponse(userEntity.getId(), userEntity.getUsername(), userEntity.getEmail(), userEntity.getNickname(), userEntity.getRole());
     }
