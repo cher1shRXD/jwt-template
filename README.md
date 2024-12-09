@@ -1,6 +1,6 @@
 # cher1shRXD Spring Boot JWT Template
 
-## How to adapt your project
+## How to adapt this template to your project
 1. edit **"rootProject.name"** in build.gradle
 2. edit **"spring.application.name"** in application.yml
 3. edit pacakge name **me.cher1shrxd.jwttemplate** -> **your new project name**
