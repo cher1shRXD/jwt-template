@@ -1,0 +1,26 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/springstudy
+    username: root
+    password: 4890
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+application:
+  jwt:
+    expiration: 3000000
+    refresh-expiration: 64800000
+    secret-key: ${SECRET_KEY}
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
