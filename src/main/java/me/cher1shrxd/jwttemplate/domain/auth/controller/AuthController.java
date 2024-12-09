@@ -2,7 +2,7 @@ package me.cher1shrxd.jwttemplate.domain.auth.controller;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import me.cher1shrxd.jwttemplate.domain.auth.dto.LoginRequest;
+import me.cher1shrxd.jwttemplate.domain.auth.dto.request.LoginRequest;
 import me.cher1shrxd.jwttemplate.domain.auth.dto.request.ReissueRequest;
 import me.cher1shrxd.jwttemplate.domain.auth.dto.request.SignupRequest;
 import me.cher1shrxd.jwttemplate.domain.auth.service.AuthService;

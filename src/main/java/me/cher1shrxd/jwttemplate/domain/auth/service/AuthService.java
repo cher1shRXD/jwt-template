@@ -2,7 +2,7 @@ package me.cher1shrxd.jwttemplate.domain.auth.service;
 
 import lombok.RequiredArgsConstructor;
 
-import me.cher1shrxd.jwttemplate.domain.auth.dto.LoginRequest;
+import me.cher1shrxd.jwttemplate.domain.auth.dto.request.LoginRequest;
 import me.cher1shrxd.jwttemplate.domain.auth.dto.request.ReissueRequest;
 import me.cher1shrxd.jwttemplate.domain.auth.dto.request.SignupRequest;
 import me.cher1shrxd.jwttemplate.domain.auth.repository.RefreshTokenRepository;
